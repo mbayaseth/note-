@@ -12,6 +12,7 @@ function CreateNote({ history }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("");
+  let [taskDueDate, setTaskDueDate] = useState(null);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function CreateNote({ history }) {
   const noteCreate = useSelector((state) => state.noteCreate);
   const { loading, error, note } = noteCreate;
 
-  console.log(note);
+  console.log();
 
   const resetHandler = () => {
     setTitle("");
@@ -29,7 +30,14 @@ function CreateNote({ history }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createNoteAction(title, content, category));
+    dispatch(
+      createNoteAction(
+        title,
+        content,
+        category,
+        (taskDueDate = new Date(taskDueDate))
+      )
+    );
     if (!title || !content || !category) return;
 
     resetHandler();
@@ -54,7 +62,6 @@ function CreateNote({ history }) {
                 onChange={(e) => setTitle(e.target.value)}
               />
             </Form.Group>
-
             <Form.Group controlId="content">
               <Form.Label>Content</Form.Label>
               <Form.Control
@@ -73,7 +80,6 @@ function CreateNote({ history }) {
                 </Card.Body>
               </Card>
             )}
-
             <Form.Group controlId="content">
               <Form.Label>Category</Form.Label>
               <Form.Control
@@ -83,6 +89,17 @@ function CreateNote({ history }) {
                 onChange={(e) => setCategory(e.target.value)}
               />
             </Form.Group>
+
+            <Form.Group controlId="deadline">
+              <Form.Label>Task deadline</Form.Label>
+              <Form.Control
+                type="date"
+                value={""}
+                placeholder="Enter the task due date"
+                onChange={(e) => setTaskDueDate(e.target.value)}
+              />
+            </Form.Group>
+
             {loading && <Loading size={50} />}
             <Button type="submit" variant="primary">
               Create Note

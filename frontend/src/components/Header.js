@@ -30,7 +30,7 @@ function Header({ setSearch }) {
       <Container>
         <Navbar.Brand>
           <Link className="brand" to={"/"}>
-            Note Zipper
+            Note Clasp
           </Link>
         </Navbar.Brand>
 
@@ -38,7 +38,7 @@ function Header({ setSearch }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="m-auto">
             {userInfo && (
-              <Form inline>
+              <Form>
                 <FormControl
                   type="text"
                   placeholder="Search"

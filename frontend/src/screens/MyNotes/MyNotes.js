@@ -112,6 +112,13 @@ function MyNotes({ history, search }) {
                         Category - {note.category}
                       </Badge>
                     </h4>
+
+                    <h4>
+                      <Badge variant="success">
+                        Task deadline -{" "}
+                        {new Date(note.taskDueDate).toDateString()}
+                      </Badge>
+                    </h4>
                     <blockquote className="blockquote mb-0">
                       <ReactMarkdown>{note.content}</ReactMarkdown>
                       <footer className="blockquote-footer">
