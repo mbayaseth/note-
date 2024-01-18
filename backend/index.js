@@ -11,8 +11,8 @@ app.use(express.json()); // to accept json data
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
-  "https://note-l9x8.vercel.app/",
-  "http://localhost:5173/",
+  "https://note-l9x8.vercel.app",
+  "http://localhost:5173",
 ];
 // middleware
 app.use(function (req, res, next) {
@@ -56,8 +56,6 @@ app.use("/api/users", userRoutes);
 // Error Handling middlewares
 app.use(notFound);
 app.use(errorHandler);
-
-
 
 app.listen(
   PORT,
