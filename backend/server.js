@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-import colors from "colors";
 import path from "path";
 import cors from "cors";
 
@@ -9,7 +8,12 @@ import noteRoutes from "./routes/noteRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://note-l9x8.vercel.app", "http://localhost:5173"],
+    credentials: true,
+  })
+);
 
 dotenv.config();
 
