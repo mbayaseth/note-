@@ -8,12 +8,28 @@ import noteRoutes from "./routes/noteRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
-app.use(
-  cors({
-    origin: ["https://note-l9x8.vercel.app", "http://localhost:5173"],
-    credentials: true,
-  })
-);
+const allowedOrigins = [
+  "https://note-l9x8.vercel.app",
+  "http://localhost:5173",
+];
+// middleware
+app.use(function (req, res, next) {
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type, authorization"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 
 dotenv.config();
 
