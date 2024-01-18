@@ -1,4 +1,4 @@
 export const backendUrl =
   process.env.NODE_ENV === "production"
-    ? "https://average-teal-penguin.cyclic.app"
+    ? "https://noteapp-two.onrender.com"
     : "http://localhost:5000";

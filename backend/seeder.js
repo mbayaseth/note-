@@ -1,13 +1,12 @@
-import mongoose from "mongoose";
 import dotenv from "dotenv";
+dotenv.config();
+import mongoose from "mongoose";
 import colors from "colors";
 import users from "./data/users.js";
 import notes from "./data/notes.js";
 import User from "./models/userModel.js";
 import Note from "./models/noteModel.js";
 import connectDB from "./config/db.js";
-
-dotenv.config();
 
 connectDB();
 
