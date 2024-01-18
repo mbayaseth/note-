@@ -9,12 +9,13 @@ import noteRoutes from "./routes/noteRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
+app.use(cors());
+
 dotenv.config();
 
 connectDB();
 
 const app = express(); // main thing
-app.use(cors());
 app.use(express.json()); // to accept json data
 
 // --------------------------deployment------------------------------
