@@ -12,7 +12,7 @@ function CreateNote({ history }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("");
-  let [taskDueDate, setTaskDueDate] = useState(null);
+  let [taskDueDate, setTaskDueDate] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ function CreateNote({ history }) {
               <Form.Label>Task deadline</Form.Label>
               <Form.Control
                 type="date"
-                value={""}
+                value={taskDueDate}
                 placeholder="Enter the task due date"
                 onChange={(e) => setTaskDueDate(e.target.value)}
               />
