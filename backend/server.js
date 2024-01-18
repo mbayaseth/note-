@@ -9,8 +9,8 @@ import userRoutes from "./routes/userRoutes.js";
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 const allowedOrigins = [
-  "https://note-l9x8.vercel.app",
-  "http://localhost:5173",
+  "https://note-l9x8.vercel.app/",
+  "http://localhost:5173/",
 ];
 // middleware
 app.use(function (req, res, next) {
