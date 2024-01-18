@@ -11,9 +11,9 @@ import {
   USER_UPDATE_SUCCESS,
 } from "../constants/userConstants";
 import Axios from "axios";
-
+import { backendUrl } from "../helper";
 const axios = Axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: backendUrl,
 });
 
 export const login = (email, password) => async (dispatch) => {

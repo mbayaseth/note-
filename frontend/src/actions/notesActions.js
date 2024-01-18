@@ -13,9 +13,9 @@ import {
   NOTES_UPDATE_SUCCESS,
 } from "../constants/notesConstants";
 import Axios from "axios";
-
+import { backendUrl } from "../helper";
 const axios = Axios.create({
-  baseURL: "http://localhost:5000/",
+  baseURL: backendUrl,
 });
 
 export const listNotes = () => async (dispatch, getState) => {
