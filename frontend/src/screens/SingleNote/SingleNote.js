@@ -8,6 +8,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
 import ReactMarkdown from "react-markdown";
 import { useParams, useNavigate } from "react-router-dom";
+import { backendUrl } from "../../helper";
 
 function SingleNote() {
   const [title, setTitle] = useState("");
@@ -37,7 +38,7 @@ function SingleNote() {
 
   const fetching = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/notes/${id}`);
+      const response = await axios.get(`${backendUrl}/api/notes/${id}`);
       const data = response.data;
       // console.log(data);
       setTitle(data.title);
