@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
 import connectDB from "./config/db.js";
 import path from "path";
-
 
 import noteRoutes from "./routes/noteRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -33,8 +33,6 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
-
-dotenv.config();
 
 connectDB();
 
